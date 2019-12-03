@@ -1,0 +1,321 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:convertors="clr-namespace:ThemesLib.InStat.Convertors"
+                    xmlns:fitnessControls="clr-namespace:ThemesLib.InStat.Fitness.Controls"
+                    xmlns:radialButton="clr-namespace:ThemesLib.InStat.Fitness.Controls.RadialButton"
+                    xmlns:busyIndicator="clr-namespace:ThemesLib.InStat.Helpers.BusyIndicator">
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <ResourceDictionary>
+            <convertors:NumberMulConvertor x:Key="KNumberMulConvertor" />
+            <convertors:KeyToStringConvertor x:Key="KKeyToStringConvertor" />
+        </ResourceDictionary>
+
+        <ResourceDictionary Source="/ColorsLib;component/InStat/Colors/ClassicColors.xaml" />
+        <ResourceDictionary Source="WaitIndicators.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="Slider.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="ScrollBar.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="ComboBox.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="CheckBox.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="TextBox.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="RadialButton.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="Button.xaml"></ResourceDictionary>
+
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--VideoSlider-->
+    <Style TargetType="{x:Type fitnessControls:VideoSlider}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type fitnessControls:VideoSlider}">
+                    <Slider x:Name="NSlider" Style="{DynamicResource KBlendSliderStyle}" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--PasswordBox-->
+    <Style TargetType="{x:Type fitnessControls:PasswordBox}">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type fitnessControls:PasswordBox}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+
+                        <Grid Name="NMainGrid">
+                            <PasswordBox Name="NPasswordBoxWin" Grid.Column="0" TabIndex="1"
+                                         Style="{DynamicResource NPasswordTextBoxStyle}" 
+                                         Height="{TemplateBinding Height}" FontSize="{TemplateBinding FontSize}"/>
+                            <TextBox Name="NPasswordBoxViewedText" Grid.Column="0" Visibility="Collapsed" TabIndex="1"
+                                     Style="{DynamicResource KLoginTextBoxStyle}"
+                                     Height="{TemplateBinding Height}" FontSize="{TemplateBinding FontSize}"/>
+                            <CheckBox Name="NPasswordBoxButton" Grid.Column="0" Focusable="False"
+                                      Style="{DynamicResource KEyeCheckBoxStyle}" />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--radialButton-->
+    <Style TargetType="radialButton:RadialPiece">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="White" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="radialButton:RadialPiece">
+                    <Grid Width="{TemplateBinding Width}"
+                          Height="{TemplateBinding Height}">
+
+                        <Canvas x:Name="Root" HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch">
+
+                            <Path x:Name="BackgroundCircleHighlight"
+                                  Data="{TemplateBinding BackgroundGeometry}"
+                                  Fill="{TemplateBinding ProgressBackgroundAnimation}"
+                                  Opacity="1" StrokeMiterLimit="1"
+                                  IsHitTestVisible="False" />
+
+                            <Path x:Name="Slice"
+                                  Data="{TemplateBinding Geometry}"
+                                  Fill="{TemplateBinding ProgressColorAnimation}"
+                                  StrokeMiterLimit="1" />
+                        </Canvas>
+
+                        <Canvas HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch">
+
+                            <Path
+                                Data="{TemplateBinding MaskStartPoint}"
+                                Fill="{TemplateBinding ProgressColorAnimation}"
+                                IsHitTestVisible="False"
+                                StrokeMiterLimit="1" />
+
+                            <Path x:Name="MouseOverHighlight"
+                                  Data="{TemplateBinding Mask}"
+                                  Fill="{TemplateBinding MaskColorAnimation}"
+                                  IsHitTestVisible="False"
+                                  Opacity="1"
+                                  StrokeMiterLimit="1" />
+                        </Canvas>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type radialButton:RadialButtonProgress}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type radialButton:RadialButtonProgress}">
+                    <Grid>
+                        <Button Name="NButton" Style="{DynamicResource KDownloadProgressButtonStyle}"
+                                BorderBrush="#ceecc1" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="{ComponentResourceKey {x:Type radialButton:RadialButtonProgress}, KDownloadRadialButtonProgress}" 
+           TargetType="{x:Type radialButton:RadialButtonProgress}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type radialButton:RadialButtonProgress}">
+                    <Grid>
+
+                        <Button Name="NButton" Style="{DynamicResource KDownloadProgressButtonStyle}"
+                                BorderBrush="#ceecc1" />
+
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="{ComponentResourceKey {x:Type radialButton:RadialButtonProgress}, KPlayRadialButtonProgress}" 
+           TargetType="{x:Type radialButton:RadialButtonProgress}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type radialButton:RadialButtonProgress}">
+                    <Grid>
+                        <Button Name="NButton" Style="{DynamicResource KPlayProgressButtonStyle}"
+                                BorderBrush="#ceecc1" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="{ComponentResourceKey {x:Type radialButton:RadialButtonProgress}, KStopRadialButtonProgress}" 
+           TargetType="{x:Type radialButton:RadialButtonProgress}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type radialButton:RadialButtonProgress}">
+                    <Grid>
+                        <Button Name="NButton" Style="{DynamicResource KStopProgressButtonStyle}"
+                                BorderBrush="#ceecc1" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--BusyDecorator-->
+    <Style TargetType="{x:Type busyIndicator:BusyDecorator}">
+        <Setter Property="BusyStyle" Value="{DynamicResource KWaitIndicator18}" />
+    </Style>
+
+    <!--PComboBox-->
+    <Style TargetType="{x:Type fitnessControls:PComboBox}">
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.CanContentScroll" Value="true" />
+        <Setter Property="MinWidth" Value="50" />
+        <Setter Property="MinHeight" Value="30" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ComboBox}">
+                    <Grid>
+                        <Border BorderThickness="1" x:Name="NBorder">
+                            <Border.BorderBrush>
+                                <SolidColorBrush Color="{DynamicResource KBorder_C}" />
+                            </Border.BorderBrush>
+
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <Storyboard>
+                                                <DoubleAnimation
+                                                    Storyboard.TargetName="NBorder"
+                                                    Storyboard.TargetProperty="Opacity"
+                                                    To="0.7" Duration="0:0:0.01" />
+                                                <ColorAnimationUsingKeyFrames Storyboard.TargetName="NBorder"
+                                                                              Storyboard.TargetProperty="(BorderBrush).(SolidColorBrush.Color)">
+                                                    <EasingColorKeyFrame KeyTime="0"
+                                                                         Value="{DynamicResource KDisabled_C}" />
+                                                </ColorAnimationUsingKeyFrames>
+                                                <ColorAnimationUsingKeyFrames
+                                                    Storyboard.TargetName="PART_EditableTextBox"
+                                                    Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)">
+                                                    <EasingColorKeyFrame KeyTime="0"
+                                                                         Value="{DynamicResource KDisabled_C}" />
+                                                </ColorAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="40" />
+                                </Grid.ColumnDefinitions>
+
+                                <ToggleButton x:Name="ToggleButton"
+                                              Template="{DynamicResource ComboBoxToggleButton}"
+                                              Grid.Column="1"
+                                              Focusable="false"
+                                              ClickMode="Press"
+                                              HorizontalAlignment="Center" VerticalAlignment="Center"
+                                              IsChecked="False" />
+
+                                <ContentPresenter
+                                    Grid.Column="0" x:Name="ContentSite"
+                                    IsHitTestVisible="False"
+                                    Content="{TemplateBinding SelectionBoxItem}"
+                                    ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                    ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Left" />
+
+                                <TextBox Grid.Column="0" x:Name="PART_EditableTextBox"
+                                         Style="{x:Null}"
+                                         HorizontalAlignment="Left"
+                                         VerticalAlignment="Center"
+                                         Margin="10,0,0,0"
+                                         Focusable="False"
+                                         Width="{TemplateBinding ActualWidth}"
+                                         Background="Transparent"
+                                         IsReadOnly="{TemplateBinding IsReadOnly}"
+                                         Visibility="Hidden">
+                                    <TextBox.Template>
+                                        <ControlTemplate>
+                                            <Border Background="Transparent">
+                                                <ScrollViewer VerticalAlignment="Center"
+                                                              x:Name="PART_ContentHost" />
+                                            </Border>
+                                        </ControlTemplate>
+                                    </TextBox.Template>
+                                </TextBox>
+
+                                <TextBox Grid.Column="0" x:Name="PART_TopEditableTextBox"
+                                         Style="{x:Null}"
+                                         HorizontalAlignment="Stretch"
+                                         VerticalAlignment="Stretch"
+                                         Margin="10,0,0,0"
+                                         Focusable="True"
+                                         Background="Transparent"
+                                         HorizontalContentAlignment="Left"
+                                         VerticalContentAlignment="Center">
+                                    <TextBox.Template>
+                                        <ControlTemplate>
+                                            <Border Background="Transparent">
+                                                <ScrollViewer VerticalAlignment="Center"
+                                                              x:Name="PART_ContentHost" />
+                                            </Border>
+                                        </ControlTemplate>
+                                    </TextBox.Template>
+                                </TextBox>
+
+                                <Popup Grid.Column="0"
+                                       x:Name="Popup"
+                                       Placement="Bottom"
+                                       VerticalOffset="0"
+                                       HorizontalOffset="1"
+                                       IsOpen="{TemplateBinding IsDropDownOpen}"
+                                       AllowsTransparency="True"
+                                       Focusable="False"
+                                       PopupAnimation="Fade">
+                                    <Grid x:Name="DropDown"
+                                          SnapsToDevicePixels="True"
+                                          MinWidth="{TemplateBinding ActualWidth}"
+                                          MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                          Background="{DynamicResource KControlBackgroundSolidColor}">
+
+                                        <Border x:Name="DropDownBorder"
+                                                BorderThickness="1,1,1,1"
+                                                BorderBrush="{DynamicResource KBorderSolidColor}"
+                                                Width="{TemplateBinding ActualWidth}">
+                                            <ScrollViewer SnapsToDevicePixels="True"
+                                                          Style="{DynamicResource KScrollViewer}"
+                                                          VerticalScrollBarVisibility="Auto">
+                                                <WrapPanel IsItemsHost="True" Orientation="Vertical"
+                                                           KeyboardNavigation.DirectionalNavigation="Contained" />
+                                            </ScrollViewer>
+                                        </Border>
+                                    </Grid>
+                                </Popup>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

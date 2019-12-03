@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=System">
+
+
+    <FontFamily x:Key="SegoeUi">#Segoe UI</FontFamily>
+    <FontFamily x:Key="KpfBeauSansPro">pack://application:,,,/ControlsLibrary;component/Fonts/PFBeauSansPro/#PF BeauSans Pro</FontFamily>
+    <FontFamily x:Key="KpfBeauSansProB">pack://application:,,,/Fonts/PFBeauSansPro/#PF BeauSans Pro B</FontFamily>
+
+</ResourceDictionary>

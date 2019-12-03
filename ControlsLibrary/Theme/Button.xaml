@@ -1,0 +1,514 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:ControlsLibrary.Controls">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/ColorsLib;component/InStat/Colors/ClassicColors.xaml" />
+        <ResourceDictionary Source="Fonts.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="KButtonBackShadowStyle" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Focusable" Value="True" />
+        <Setter Property="BorderBrush" Value="#3F49495E" />
+        <Setter Property="Foreground" Value="#cccccc" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0:0:0.0" />
+                                    <VisualTransition GeneratedDuration="0" To="Pressed" />
+                                </VisualStateGroup.Transitions>
+
+                                <VisualState x:Name="Normal"/>
+                                    <!--<Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="PART_BorderInside"
+                                            Storyboard.TargetProperty="Height"
+                                            To="29" Duration="0:0:0.01" />
+                                    </Storyboard>-->
+                                
+                                <!--<VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="NWhiteBorder"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1" Duration="0:0:0.5" />
+                                    </Storyboard>
+                                </VisualState>-->
+
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="PART_BorderInside"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0.8" Duration="0:0:0.0" />
+
+                                        <!--<ColorAnimationUsingKeyFrames Storyboard.TargetName="PART_Border"
+                                                                      Storyboard.TargetProperty="(BorderBrush).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0"
+                                                                 Value="#858585" />
+                                        </ColorAnimationUsingKeyFrames>-->
+                                    </Storyboard>
+                                </VisualState>
+
+                                <VisualState x:Name="Pressed">
+                                    <!--<Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="PART_BorderInside"
+                                            Storyboard.TargetProperty="Height"
+                                            To="30" Duration="0:0:0.0" />
+                                    </Storyboard>-->
+                                </VisualState>
+
+                                <!--<VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="NBorder"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0.3" Duration="0:0:0.5" />
+                                    </Storyboard>
+                                </VisualState>-->
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <Border Background="#333333" Name="NBorder" Height="30"
+                                Width="{TemplateBinding Width}" CornerRadius="3">
+
+                            <Grid>
+
+                                <Border x:Name="PART_BorderInside" CornerRadius="3" Height="29" VerticalAlignment="Top">
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="#FF585858"/>
+                                            <GradientStop Color="#FF3E3E3E" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                </Border>
+
+
+                                <TextBlock FontFamily="{StaticResource SegoeUi}" 
+                                           FontSize="{TemplateBinding FontSize}" 
+                                           Foreground="{TemplateBinding Foreground}"
+                                           FontWeight="Bold"
+                                           HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <ContentPresenter RecognizesAccessKey="True"/>
+                                </TextBlock>
+                            </Grid>
+
+                            
+
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="KButtonWaitBackShadowStyle" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Focusable" Value="True" />
+        <Setter Property="BorderBrush" Value="#3F49495E" />
+        <Setter Property="Foreground" Value="#cccccc" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0:0:0.0" />
+                                    <VisualTransition GeneratedDuration="0" To="Pressed" />
+                                </VisualStateGroup.Transitions>
+
+                                <VisualState x:Name="Normal"/>
+                               
+
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="PART_BorderInside"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0.8" Duration="0:0:0.0" />
+                                    </Storyboard>
+                                </VisualState>
+
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="BlurEffect"
+                                            Storyboard.TargetProperty="Radius"
+                                            To="1" Duration="0:0:0.0" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+
+                            <VisualStateGroup x:Name="WaitInidicatorStates">
+                                <VisualState x:Name="WaitInidicatorShowState">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_TextBlock"
+                                                                       Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Hidden}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_WaitInidicator"
+                                                                       Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+
+                                <VisualState x:Name="WaitInidicatorHideState">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_TextBlock"
+                                                                       Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_WaitInidicator"
+                                                                       Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Collapsed}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <Border Background="#333333" Name="NBorder" Height="30"
+                                Width="{TemplateBinding Width}" CornerRadius="3">
+
+                            <Grid>
+
+                                <Border x:Name="PART_BorderInside" CornerRadius="3" Height="29" VerticalAlignment="Top">
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="#FF585858"/>
+                                            <GradientStop Color="#FF3E3E3E" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <Border.Effect>
+                                        <BlurEffect x:Name="BlurEffect" Radius="0"></BlurEffect>
+                                    </Border.Effect>
+                                </Border>
+
+
+                                <TextBlock x:Name="PART_TextBlock"
+                                           FontFamily="{StaticResource SegoeUi}" 
+                                           FontSize="{TemplateBinding FontSize}" 
+                                           Foreground="{TemplateBinding Foreground}"
+                                           FontWeight="Bold"
+                                           HorizontalAlignment="Center" VerticalAlignment="Center"
+                                           Visibility="Visible"
+                                           >
+                                    <ContentPresenter RecognizesAccessKey="True"/>
+                                </TextBlock>
+
+                                <controls:WaitInidicator x:Name="PART_WaitInidicator" Visibility="Collapsed"></controls:WaitInidicator>
+                            </Grid>
+
+
+
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="KButtonTransporentBorderStyle" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Focusable" Value="True" />
+        <Setter Property="Background" Value="{DynamicResource MainBackground_Cb}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MainBorderBrush_Cb}" />
+        <Setter Property="Foreground" Value="{DynamicResource MainForeground_Cb}" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0:0:0.0" />
+                                    <VisualTransition GeneratedDuration="0" To="Pressed" />
+                                </VisualStateGroup.Transitions>
+
+                                <VisualState x:Name="Normal"/>
+
+
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="PART_Border"
+                                                                      Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0"
+                                                                 Value="#4C4C4C" />
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="PART_Border"
+                                                                      Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0"
+                                                                 Value="#5B5B5B" />
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+
+                        </VisualStateManager.VisualStateGroups>
+
+                        <Border Name="PART_Border" Height="30"
+                                Background="{TemplateBinding Background}"  
+                                BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="3"
+                                Width="{TemplateBinding Width}" Opacity="0.5">
+
+                            <TextBlock x:Name="PART_TextBlock"
+                                       FontFamily="{StaticResource SegoeUi}" 
+                                       FontSize="{TemplateBinding FontSize}" 
+                                       Foreground="{TemplateBinding Foreground}"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                                       Visibility="Visible"
+                            >
+                                <ContentPresenter RecognizesAccessKey="True"/>
+                            </TextBlock>
+
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style x:Key="KButtonWhiteBorderStyle" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Focusable" Value="True" />
+        <Setter Property="BorderBrush" Value="#646464" />
+        <Setter Property="Foreground" Value="#646464" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0:0:0.0" />
+                                    <VisualTransition GeneratedDuration="0" To="Pressed" />
+                                </VisualStateGroup.Transitions>
+
+                                <VisualState x:Name="Normal"/>
+                                <!--<Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="PART_BorderInside"
+                                            Storyboard.TargetProperty="Height"
+                                            To="29" Duration="0:0:0.01" />
+                                    </Storyboard>-->
+
+                                <!--<VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="NWhiteBorder"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1" Duration="0:0:0.5" />
+                                    </Storyboard>
+                                </VisualState>-->
+
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="PART_Border"
+                                                                      Storyboard.TargetProperty="(BorderBrush).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0"
+                                                                 Value="#858585" />
+                                        </ColorAnimationUsingKeyFrames>
+
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="PART_TextBlock"
+                                                                      Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0"
+                                                                 Value="#858585" />
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+
+                                <!--<VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="NWhiteBorder"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0.5" Duration="0:0:0.01" />
+                                    </Storyboard>
+                                </VisualState>-->
+
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="PART_Border"
+                                                                      Storyboard.TargetProperty="(BorderBrush).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0"
+                                                                 Value="#757575" />
+                                        </ColorAnimationUsingKeyFrames>
+
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="PART_TextBlock"
+                                                                      Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0"
+                                                                 Value="#757575" />
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+
+                                <!--<VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="NBorder"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0.3" Duration="0:0:0.5" />
+                                    </Storyboard>
+                                </VisualState>-->
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <Border Background="Transparent" Name="PART_Border" Height="30"
+                                Width="{TemplateBinding Width}" CornerRadius="3"
+                                BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1">
+
+                            <TextBlock Name="PART_TextBlock" FontFamily="{StaticResource SegoeUi}" 
+                                       FontSize="{TemplateBinding FontSize}" 
+                                       Foreground="{TemplateBinding Foreground}"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <ContentPresenter RecognizesAccessKey="True"/>
+
+                            </TextBlock>
+
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="KSelectGenderLeftToggleButtonStyle" TargetType="{x:Type RadioButton}">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Focusable" Value="True" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MainBorderBrush_Cb}" />
+        <Setter Property="Background" Value="{DynamicResource MainBackground_Cb}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RadioButton}">
+                    <Border x:Name="PART_Border" Background="Transparent" RenderOptions.EdgeMode="Aliased"
+                            HorizontalAlignment="Center" VerticalAlignment="Center"
+                            CornerRadius="5,0,0,5"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver" />
+                                <VisualState x:Name="Checked">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="TextBlock"
+                                                                      Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0"
+                                                                 Value="{DynamicResource MainBackground_C}" />
+                                        </ColorAnimationUsingKeyFrames>
+
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <TextBlock x:Name="TextBlock" Foreground="{DynamicResource MainForeground_Cb}"
+                                   FontSize="{TemplateBinding FontSize}" FontWeight="{TemplateBinding FontWeight}"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <ContentPresenter Margin="2"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              RecognizesAccessKey="True" />
+                        </TextBlock>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background" TargetName="PART_Border" Value="#666666" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="KSelectGenderRightToggleButtonStyle" TargetType="{x:Type RadioButton}">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Focusable" Value="True" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MainBorderBrush_Cb}" />
+        <Setter Property="Background" Value="{DynamicResource MainBackground_Cb}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RadioButton}">
+                    <Border x:Name="PART_Border" Background="Transparent" RenderOptions.EdgeMode="Aliased"
+                            HorizontalAlignment="Center" VerticalAlignment="Center"
+                            CornerRadius="0,5,5,0"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver" />
+                                <VisualState x:Name="Checked">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="TextBlock"
+                                                                      Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0"
+                                                                 Value="{DynamicResource MainBackground_C}" />
+                                        </ColorAnimationUsingKeyFrames>
+
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <TextBlock x:Name="TextBlock" Foreground="{DynamicResource MainForeground_Cb}"
+                                   FontSize="{TemplateBinding FontSize}" FontWeight="{TemplateBinding FontWeight}"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <ContentPresenter Margin="2"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              RecognizesAccessKey="True" />
+                        </TextBlock>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background" TargetName="PART_Border" Value="#666666" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

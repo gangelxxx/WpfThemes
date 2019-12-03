@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="FitnessThemesTest1.TestViews.WaitComboBoxView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FitnessThemesTest1.TestViews"
+             xmlns:controls="clr-namespace:ThemesLib.InStat.Controls;assembly=ThemesLib"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <TextBlock HorizontalAlignment="Center" Height="18">WaitComboBox</TextBlock>
+
+            <!--<controls:WaitComboBox Name="NWaitComboBox" Margin="5" Width="300" MaxDropDownHeight="156"
+                                   ItemsSource="{Binding AutoComboSource}" 
+                                   />-->
+
+            <controls:WaitComboBox Name="NWaitComboBox" Margin="5" Width="300" MaxDropDownHeight="156"
+                                   ItemsSource="{Binding AutoComboSource}" 
+                                   SelectedIndex="{Binding SelectedIndexForWaitComboBox}"
+                                   SelectedItem="{Binding SelectedItemForWaitComboBox, Mode=TwoWay}"
+                                   LoadCompleted="NWaitComboBox_OnRefreshed"
+                                   SelectedItemString="{Binding SelectedItemString}"/>
+
+            <controls:WaitComboBox Margin="5" Width="300" MaxDropDownHeight="156" IsEnabled="False"/>
+
+            <Button Click="ButtonBase_OnClick">Refresh WaitCombo</Button>
+
+            <StackPanel Orientation="Vertical" Width="100">
+                <TextBox Name="NTextBox">1287</TextBox>
+                <Button  Click="OkSetNumberButton_OnClick">Ok</Button>
+            </StackPanel>
+            
+            <TextBlock Text="{Binding ElementName=NWaitComboBox, Path=SelectedItem}"></TextBlock>
+        </StackPanel>
+    </Grid>
+</UserControl>

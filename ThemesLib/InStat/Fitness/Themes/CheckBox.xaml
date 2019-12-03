@@ -1,0 +1,57 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/ColorsLib;component/InStat/Colors/ClassicColors.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="KEyeCheckBoxStyle" TargetType="{x:Type CheckBox}">
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type CheckBox}">
+
+                    <Grid Height="16" Width="30" Margin="0,0,10,0">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="NPART_Path"
+                                                                      Storyboard.TargetProperty="(Stroke).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0"
+                                                                 Value="{DynamicResource KDisabled_C}" />
+                                        </ColorAnimationUsingKeyFrames>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="NPART_Ellipse"
+                                                                      Storyboard.TargetProperty="(Stroke).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0"
+                                                                 Value="{DynamicResource KDisabled_C}" />
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <Path Name="NPART_Path"
+                              Data="M0.94664026,11.742939 C15.296007,-3.6582027 30.363317,-3.8293875 46.176472,11.821267 40.786909,17.376727 33.399199,23.188437 23.365446,23.109704 12.465255,23.024171 5.8321746,17.166044 0.94664026,11.742939 z"
+                              Fill="{DynamicResource KEyeCheckBoxBackground}" Stretch="Fill" Stroke="{DynamicResource KEyeCheckBoxBorder}" />
+                        <Ellipse Name="NPART_Ellipse" Fill="{DynamicResource KEyeCheckBoxBackground}" Stroke="{DynamicResource KEyeCheckBoxBorder}" Width="10" Height="10" Margin="10,2"/>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="NPART_Path" Property="Fill" Value="{DynamicResource KEyeCheckBoxBorder}" />
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter TargetName="NPART_Path" Property="Fill" Value="{DynamicResource KEyeCheckBoxBackground}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

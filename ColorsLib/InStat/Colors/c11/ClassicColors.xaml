@@ -1,0 +1,63 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:ColorsLib">
+
+    <!--Global colors-->
+
+    <Color x:Key="KBorder_C">#0099ff</Color>
+    <SolidColorBrush x:Key="KBorder_Cb" Color="{StaticResource KBorder_C}" />
+    
+    <Color x:Key="KDisabled_C">#D2CECE</Color>
+    <SolidColorBrush x:Key="KDisabled_Cb" Color="{StaticResource KDisabled_C}" />
+    
+    <Color x:Key="KControlBackground_C">White</Color>
+    <SolidColorBrush x:Key="KControlBackground_Cb" Color="{StaticResource KControlBackground_C}" />
+
+    <!--KeyBind-->
+    <Color x:Key="KKeyBindBackgroundSaved_C">#A3D0F6</Color>
+    <SolidColorBrush x:Key="KKeyBindBackgroundSaved_Cb" Color="{StaticResource KKeyBindBackgroundSaved_C}" />
+
+    <!--ComboBox-->
+
+    <Color x:Key="KComboBoxToggleButtonUp_C">#0099ff</Color>
+    <Color x:Key="KComboBoxToggleButtonDown_C">#0099ff</Color>
+
+    <Color x:Key="KComboBoxBackGroundBusyTextbox_C">#DDDDDD</Color>
+    <SolidColorBrush x:Key="KComboBoxBackGroundBusyTextbox_Cb" Color="{StaticResource KComboBoxBackGroundBusyTextbox_C}" />
+
+    <SolidColorBrush x:Key="KComboBoxTextColor_Cb" Color="Black" />
+
+    <SolidColorBrush x:Key="KComboBoxBackground_Cb" Color="{StaticResource KControlBackground_C}" />
+    
+    <Color x:Key="KComboBoxBorder_C">#0099ff</Color>
+    <SolidColorBrush x:Key="KComboBoxBorder_Cb" Color="{StaticResource KComboBoxBorder_C}"/>
+
+    <Color x:Key="KComboBoxBorderSelected_C">#E7F5FF</Color>
+    <SolidColorBrush x:Key="KComboBoxBorderSelected_Cb" Color="{StaticResource KComboBoxBorderSelected_C}"/>
+
+    <SolidColorBrush x:Key="KPanelBackground_Cb" Color="{StaticResource KComboBoxBorderSelected_C}"/>
+
+    <!--WaitIndicators-->
+    <SolidColorBrush x:Key="KWaitIndicator19_Cb" Color="#0099ff" />
+
+    <!--Slider-->
+    <SolidColorBrush x:Key="KLeftSliderButtonBorderBrush_Cb" Color="#0898ec" />
+    <SolidColorBrush x:Key="KRightSliderButtonBorderBrush_Cb" Color="#4649495E" />
+    <SolidColorBrush x:Key="KSliderThumb_Cb" Color="#0898ec" />
+    <SolidColorBrush x:Key="KSliderBackgroundDynamicText_Cb" Color="#c7c7c7" />
+
+    <!--CheckBox-->
+    <SolidColorBrush x:Key="KEyeCheckBoxBackground" Color="{StaticResource KControlBackground_C}" />
+    <SolidColorBrush x:Key="KEyeCheckBoxBorder" Color="{StaticResource KBorder_C}" />
+
+    <!--ColorComboBox ===================================================================== -->
+    <!--BorderMouseOver-->
+    <Color x:Key="KColorComboBoxBorderMouseOver_C">Black</Color>
+    <SolidColorBrush x:Key="KColorComboBoxBorderMouseOver_Cb" Color="{StaticResource KColorComboBoxBorderMouseOver_C}" />
+
+    <Color x:Key="KColorComboBoxBackground_C">#CDCDCD</Color>
+    <SolidColorBrush x:Key="KColorComboBoxBackground_Cb" Color="{StaticResource KColorComboBoxBackground_C}" />
+
+    
+
+</ResourceDictionary>

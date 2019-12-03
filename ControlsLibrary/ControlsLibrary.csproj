@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BD2819D2-0C7C-4236-8E07-69C1A717E296}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ControlsLibrary</RootNamespace>
+    <AssemblyName>ControlsLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Annotations.cs" />
+    <Compile Include="BusyIndicator\BackgroundVisualHost.cs" />
+    <Compile Include="BusyIndicator\BusyDecorator.cs" />
+    <Compile Include="BusyIndicator\VisualTargetPresentationSource.cs" />
+    <Compile Include="Controls\ButtonTypeOne.cs" />
+    <Compile Include="Controls\ButtonTypeWait.cs" />
+    <Compile Include="Controls\CheckBoxTypeOne.cs" />
+    <Compile Include="Controls\ComboBoxSearch\TextBoxSearches.cs" />
+    <Compile Include="Controls\ComboBoxSearch\ComboBoxSearches.cs" />
+    <Compile Include="Controls\ComboBoxSearch\ComboTextBlock.cs" />
+    <Compile Include="Controls\ComboBoxSearch\ComboTextBox.cs" />
+    <Compile Include="Controls\IntUpDown.cs" />
+    <Compile Include="Controls\PasswordBox.cs" />
+    <Compile Include="Controls\ScrollViewerTypeOne.cs" />
+    <Compile Include="Controls\ComboBoxOne.cs" />
+    <Compile Include="Controls\WaitComboBox.cs" />
+    <Compile Include="Controls\WaitInidicator.cs" />
+    <Compile Include="Helpers\BrushHelper.cs" />
+    <Compile Include="Helpers\IContext.cs" />
+    <Compile Include="Helpers\Translitation.cs" />
+    <Compile Include="Helpers\ViewModelBase.cs" />
+    <Compile Include="Helpers\Context.cs" />
+    <Compile Include="Providers\WaitComboProvider.cs" />
+    <Compile Include="Render.cs" />
+    <Compile Include="Theme\IntUpDownRes\IntUpDownRes.xaml.cs" />
+    <Compile Include="VirtualizingCollection\AsyncVirtualizingCollection.cs" />
+    <Compile Include="VirtualizingCollection\IVirtualItem.cs" />
+    <Compile Include="VirtualizingCollection\IVirtualListProvider.cs" />
+    <Compile Include="VirtualizingCollection\VirtualizingCollection.cs" />
+    <Compile Include="VirtualList\Helpers\Helper.cs" />
+    <Compile Include="VirtualList\Helpers\PageStateEnum.cs" />
+    <Compile Include="VirtualList\Interface\IDataProvider.cs" />
+    <Compile Include="VirtualList\Interface\IPagePacket.cs" />
+    <Compile Include="VirtualList\Interface\IVirtualList.cs" />
+    <Compile Include="VirtualList\Interface\VirtualListItem.cs" />
+    <Compile Include="VirtualList\Page.cs" />
+    <Compile Include="VirtualList\SearchString\SearchStringList.cs" />
+    <Compile Include="VirtualList\VirtualList.cs" />
+    <Compile Include="Windows\WindowTypeOne.cs" />
+    <Compile Include="Helpers\VisualHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ColorsLib\ColorsLib.csproj">
+      <Project>{3a1a8350-a7a4-40c2-b2ec-6debe457cf72}</Project>
+      <Name>ColorsLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Theme\CheckBoxes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\ComboBoxes\TextBoxSearchesRes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\ComboBoxes\ComboBoxSearchesRes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\IntUpDownRes\IntUpDownRes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\ScrollBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\ComboBoxes\ComboBoxOne.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\TextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\TextBlock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\Button.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\Colors\ClassicColors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\Fonts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\PasswordBoxRes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\WaitComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\WaitIndicators.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\WindowsTypeOne.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Fonts\PFBeauSansPro\PFBeauSansPro-Black.ttf" />
+    <Resource Include="Fonts\PFBeauSansPro\PFBeauSansPro-BlackItal.ttf" />
+    <Resource Include="Fonts\PFBeauSansPro\PFBeauSansPro-Bold.ttf" />
+    <Resource Include="Fonts\PFBeauSansPro\PFBeauSansPro-BoldItalic.ttf" />
+    <Resource Include="Fonts\PFBeauSansPro\PFBeauSansPro-Book.ttf" />
+    <Resource Include="Fonts\PFBeauSansPro\PFBeauSansPro-BookItalic.ttf" />
+    <Resource Include="Fonts\PFBeauSansPro\PFBeauSansPro-Italic.ttf" />
+    <Resource Include="Fonts\PFBeauSansPro\PFBeauSansPro-Light.ttf" />
+    <Resource Include="Fonts\PFBeauSansPro\PFBeauSansPro-LightItal.ttf" />
+    <Resource Include="Fonts\PFBeauSansPro\PFBeauSansPro-Reg.ttf" />
+    <Resource Include="Fonts\PFBeauSansPro\PFBeauSansPro-SeBold.ttf" />
+    <Resource Include="Fonts\PFBeauSansPro\PFBeauSansPro-SeBoldItal.ttf" />
+    <Resource Include="Fonts\PFBeauSansPro\PFBeauSansPro-Thin.ttf" />
+    <Resource Include="Fonts\PFBeauSansPro\PFBeauSansPro-ThinItal.ttf" />
+    <Resource Include="Fonts\PFBeauSansPro\PFBeauSansPro-XThin.ttf" />
+    <Resource Include="Fonts\PFBeauSansPro\PFBeauSansPro-XThinItal.ttf" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

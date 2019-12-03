@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="WpfComboVirtCollection.Views.ComboTestView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfComboVirtCollection.Views"
+             xmlns:comboBoxSearch="clr-namespace:ControlsLibrary.Controls.ComboBoxSearch;assembly=ControlsLibrary"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             
+             >
+    <StackPanel Width="300" Height="300" Background="White">
+        <!-- <controls:AsyncComboBox ItemsSource="{Binding Users, IsAsync=True}" Width="100" Height="30" MaxDropDownHeight="100"></controls:AsyncComboBox> -->
+        <comboBoxSearch:ComboBoxSearches Width="300" Height="30" VirtListSource="{Binding Users}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        <comboBoxSearch:TextBoxSearches Width="300" Height="30" VirtListSource="{Binding Users}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+
+        <!--<ComboBox Width="100" Height="30" ItemsSource="{Binding Users}" Style="{DynamicResource {ComponentResourceKey {x:Type controls:AsyncComboBox}, KComboBoxStyle}}" VerticalAlignment="Center" HorizontalAlignment="Center" />-->
+
+        <!-- <controls:ComboTextBlock Width="100" Height="30" Background="Red"></controls:ComboTextBlock> -->
+    </StackPanel>
+</UserControl>

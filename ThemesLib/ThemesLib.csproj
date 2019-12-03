@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E5B57333-4F91-4936-BEDD-9A04E908A67C}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <RootNamespace>ThemesLib</RootNamespace>
+    <AssemblyName>ThemesLib</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="InStat\Controls\ColorComboBox.cs" />
+    <Compile Include="InStat\Controls\ColorComboButtonTag.cs" />
+    <Compile Include="InStat\Controls\ComboBoxReadOnly.cs" />
+    <Compile Include="InStat\Controls\PasswordBox.cs" />
+    <Compile Include="InStat\Controls\TextBoxRegex.cs" />
+    <Compile Include="InStat\Convertors\KeyToStringConvertor.cs" />
+    <Compile Include="InStat\Convertors\NumberMulConvertor.cs" />
+    <Compile Include="InStat\Fitness\Controls\KeyBind.cs" />
+    <Compile Include="InStat\Fitness\Controls\PasswordBox.cs" />
+    <Compile Include="InStat\Fitness\Controls\PComboBox.cs" />
+    <Compile Include="InStat\Fitness\Controls\RadialButton\PieceBase.cs" />
+    <Compile Include="InStat\Fitness\Controls\RadialButton\RadialButtonProgress.cs" />
+    <Compile Include="InStat\Fitness\Controls\RadialButton\RadialPiece.cs" />
+    <Compile Include="InStat\Fitness\Controls\VideoSlider.cs" />
+    <Compile Include="InStat\Helpers\ISymColors.cs" />
+    <Compile Include="InStat\Helpers\SymColors.cs" />
+    <Compile Include="InStat\Helpers\CommandHelpers.cs" />
+    <Compile Include="InStat\Helpers\Helpler.cs" />
+    <Compile Include="InStat\Helpers\ViewModelBase.cs" />
+    <Compile Include="InStat\Helpers\VirtualizingCollection\AsyncVirtualizingCollection.cs" />
+    <Compile Include="InStat\Helpers\VirtualizingCollection\IVirtualItem.cs" />
+    <Compile Include="InStat\Helpers\VirtualizingCollection\IVirtualListProvider.cs" />
+    <Compile Include="InStat\Helpers\VirtualizingCollection\VirtualizingCollection.cs" />
+    <Compile Include="InStat\Helpers\VisTrHelper.cs" />
+    <Compile Include="InStat\Models\ColorComboBoxItem.cs" />
+    <Compile Include="InStat\Providers\WaitComboProvider.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="ThemesLibRes.cs" />
+    <Page Include="InStat\Fitness\Themes\CheckBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InStat\Fitness\Themes\RadialButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InStat\Fitness\Themes\Button.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InStat\Fitness\Themes\ScrollBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InStat\Fitness\Themes\TextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InStat\Fitness\Themes\Slider.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InStat\Fitness\Themes\ComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InStat\Fitness\Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InStat\Fitness\Themes\WaitIndicators.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InStat\Themes\Theme1\ColorComboBoxRes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InStat\Themes\Theme1\PasswordBoxRes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InStat\Themes\Theme1\ComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InStat\Themes\Theme1\WaitIndicators.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InStat\Themes\Theme1\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InStat\Themes\Theme1\Buttons1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="InStat\Controls\WaitComboBox.cs" />
+    <Compile Include="InStat\Helpers\BusyIndicator\BackgroundVisualHost.cs" />
+    <Compile Include="InStat\Helpers\BusyIndicator\BusyDecorator.cs" />
+    <Compile Include="InStat\Helpers\BusyIndicator\VisualTargetPresentationSource.cs" />
+    <Compile Include="InStat\Misc\BooleanBoxes.cs" />
+    <Compile Include="InStat\Helpers\PaletteHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\MyPrj\Base_Logging\Logging\Logging\Logging.csproj">
+      <Project>{a4d9ca0e-6035-4e18-9576-d5dddb3cda17}</Project>
+      <Name>Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ColorsLib\ColorsLib.csproj">
+      <Project>{3a1a8350-a7a4-40c2-b2ec-6debe457cf72}</Project>
+      <Name>ColorsLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="InStat\Behaviors\" />
+    <Folder Include="InStat\Themes\ClassicTheme\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>f:\AngelWork\Programming\InStat\Base_ThemesControls\UpdateNumberBuild\bin\Debug\UpdateNumberBuild.exe f:\AngelWork\Programming\InStat\Base_ThemesControls\GenericThemes\ThemesLib\Properties\</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

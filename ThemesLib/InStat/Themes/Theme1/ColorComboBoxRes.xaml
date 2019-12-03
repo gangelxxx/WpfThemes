@@ -1,0 +1,248 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:ThemesLib.InStat.Controls">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/ColorsLib;component/InStat/Colors/ClassicColors.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <ControlTemplate x:Key="ComboBoxToggleButtonTemplate"
+                     TargetType="{x:Type ToggleButton}">
+        <Border Background="Transparent" Width="17" Height="30">
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="Disabled">
+                        <Storyboard>
+                            <Storyboard>
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetName="NArrowUp"
+                                                              Storyboard.TargetProperty="(Stroke).(SolidColorBrush.Color)">
+                                    <EasingColorKeyFrame KeyTime="0" Value="{DynamicResource KDisabled_C}" />
+                                </ColorAnimationUsingKeyFrames>
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetName="NArrowDown"
+                                                              Storyboard.TargetProperty="(Stroke).(SolidColorBrush.Color)">
+                                    <EasingColorKeyFrame KeyTime="0" Value="{DynamicResource KDisabled_C}" />
+                                </ColorAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+                <VisualStateGroup x:Name="CheckStates">
+                    <VisualState x:Name="Checked">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="NArrowUp"
+                                                           Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="NArrowDown"
+                                                           Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Hidden}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <DoubleAnimation
+                                Storyboard.TargetName="NArrowUp"
+                                Storyboard.TargetProperty="Opacity"
+                                To="1" Duration="0:0:0.3" />
+                            <DoubleAnimation
+                                Storyboard.TargetName="NArrowDown"
+                                Storyboard.TargetProperty="Opacity"
+                                To="0" Duration="0:0:0.3" />
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Unchecked">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="NArrowUp"
+                                                           Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Hidden}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="NArrowDown"
+                                                           Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <DoubleAnimation
+                                Storyboard.TargetName="NArrowUp"
+                                Storyboard.TargetProperty="Opacity"
+                                To="0" Duration="0:0:0.3" />
+                            <DoubleAnimation
+                                Storyboard.TargetName="NArrowDown"
+                                Storyboard.TargetProperty="Opacity"
+                                To="1" Duration="0:0:0.3" />
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+
+            <Grid HorizontalAlignment="Left" Margin="1,0,0,0">
+                <Path x:Name="NArrowUp" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden" Opacity="0"
+                      Stroke="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type controls:ColorComboBox}}, Path=ToggleButtonUpColor}">
+                    <Path.Data>
+                        <GeometryGroup>
+                            <PathGeometry
+                                Figures="M4.497,0.2133 L4.7133,-0.003 L9.303,4.5867 L9.0867,4.803 L4.497,0.2133 Z" />
+                            <PathGeometry
+                                Figures="M4.5867,-0.003 L4.803,0.2133 L0.2133,4.803 L-0.003,4.5867 L4.5867,-0.003 Z" />
+                        </GeometryGroup>
+                    </Path.Data>
+                </Path>
+
+                <Path x:Name="NArrowDown" HorizontalAlignment="Center" VerticalAlignment="Center"
+                      RenderTransformOrigin="0.5,0.5" Visibility="Visible" Opacity="1"
+                      Stroke="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type controls:ColorComboBox}}, Path=ToggleButtonDownColor}">
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform />
+                            <SkewTransform />
+                            <RotateTransform Angle="-180" />
+                            <TranslateTransform />
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                    <Path.Data>
+                        <GeometryGroup>
+                            <PathGeometry
+                                Figures="M4.497,0.2133 L4.7133,-0.003 L9.303,4.5867 L9.0867,4.803 L4.497,0.2133 Z" />
+                            <PathGeometry
+                                Figures="M4.5867,-0.003 L4.803,0.2133 L0.2133,4.803 L-0.003,4.5867 L4.5867,-0.003 Z" />
+                        </GeometryGroup>
+                    </Path.Data>
+                </Path>
+            </Grid>
+        </Border>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="ComboBoxTextBox"
+                     TargetType="{x:Type TextBox}">
+        <Border x:Name="PART_ContentHost"
+                Focusable="False" />
+    </ControlTemplate>
+
+    <Style x:Key="KComboBoxItem" TargetType="{x:Type ComboBoxItem}">
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                    <StackPanel Name="PART_ComboBoxItemStackPanelBase" Orientation="Horizontal">
+                        <!--<Button Foreground="Red"  BorderBrush="Transparent"  Style="{DynamicResource KNotHaveColorButtonStyle}" Margin="3"></Button>
+                        <Button Foreground="Gold" BorderBrush="Transparent"  Style="{DynamicResource KColorButtonStyle}" Margin="3"></Button>
+                        <Button Foreground="Green" BorderBrush="Transparent"  Style="{DynamicResource KColorButtonStyle}" Margin="3"></Button>
+                        <Button Foreground="Blue" BorderBrush="Transparent"  Style="{DynamicResource KColorButtonStyle}" Margin="3"></Button>-->
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="KColorComboBox" TargetType="ComboBox">
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.CanContentScroll" Value="true" />
+        <Setter Property="MinWidth" Value="40" />
+        <Setter Property="MinHeight" Value="30" />
+        <Setter Property="Background" Value="{DynamicResource KColorComboBoxBackground_Cb}" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="IsEditable" Value="True" />
+        <Setter Property="IsReadOnly" Value="False" />
+
+        <Setter Property="ItemContainerStyle" Value="{StaticResource KComboBoxItem}" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ComboBox}">
+                    <Border x:Name="NBorder"
+                            BorderThickness="1"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="6">
+
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames
+                                                Storyboard.TargetName="PART_EditableTextBox"
+                                                Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)">
+                                                <EasingColorKeyFrame KeyTime="0"
+                                                                     Value="{DynamicResource KDisabled_C}" />
+                                            </ColorAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </Storyboard>
+                                </VisualState>
+
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <Grid Margin="-1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+
+                            <ToggleButton x:Name="PART_ToggleButton"
+                                          Visibility="Visible"
+                                          Cursor="Hand"
+                                          Template="{DynamicResource ComboBoxToggleButtonTemplate}"
+                                          Grid.Column="1"
+                                          Focusable="false"
+                                          ClickMode="Press"
+                                          HorizontalAlignment="Center" VerticalAlignment="Center"
+                                          IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+
+                            <Ellipse Grid.Column="0" x:Name="PART_EllipseContent" Width="17" Height="17" Fill="Transparent"/>
+
+                            <Popup Grid.Column="0"
+                                   x:Name="Popup"
+                                   Placement="Bottom"
+                                   VerticalOffset="0"
+                                   HorizontalOffset="0"
+                                   IsOpen="{TemplateBinding IsDropDownOpen}"
+                                   AllowsTransparency="True"
+                                   Focusable="False"
+                                   PopupAnimation="Slide">
+                                <Border Margin="5" Background="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type controls:ColorComboBox}}, Path=BackgroundPopupColor}" CornerRadius="6">
+                                    <StackPanel IsItemsHost="True" 
+                                                KeyboardNavigation.DirectionalNavigation="Contained" />
+
+                                    <Border.Effect>
+                                        <DropShadowEffect BlurRadius="5" ShadowDepth="1"></DropShadowEffect>
+                                    </Border.Effect>
+                                </Border>
+                            </Popup>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="{ComponentResourceKey {x:Type controls:ColorComboBox}, KControlColorComboBox}" TargetType="{x:Type controls:ColorComboBox}">
+        <Setter Property="Background" Value="Wheat"></Setter>
+        <Setter Property="BorderBrush" Value="Transparent"></Setter>
+        <Setter Property="BorderThickness" Value="0"></Setter>
+        <Setter Property="ToggleButtonUpColor" Value="Red"></Setter>
+        <Setter Property="ToggleButtonDownColor" Value="Coral"></Setter>
+        <Setter Property="BackgroundPopupColor" Value="Crimson"></Setter>
+        <Setter Property="Width" Value="43"></Setter>
+        <Setter Property="Height" Value="30"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type controls:ColorComboBox}">
+                    <Grid>
+                        <ComboBox x:Name="PART_ComboBox" Style="{StaticResource KColorComboBox}" 
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  Width="{TemplateBinding Width}"
+                                  Height="{TemplateBinding Height}"
+                                  />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

@@ -1,0 +1,430 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:ControlsLibrary.Controls.ComboBoxSearch"
+    xmlns:controls1="clr-namespace:ControlsLibrary.Controls">
+
+    <ControlTemplate x:Key="{ComponentResourceKey {x:Type controls:ComboBoxSearches}, ComboBoxToggleButton}" TargetType="{x:Type ToggleButton}">
+        <Border Background="Transparent" Width="30" Height="30">
+            <VisualStateManager.VisualStateGroups>
+                
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="Disabled"/>
+                </VisualStateGroup>
+
+                <VisualStateGroup x:Name="CheckStates">
+                    <VisualState x:Name="Checked">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="NArrowUp"
+                                                           Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="NArrowDown"
+                                                           Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Hidden}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <DoubleAnimation
+                                Storyboard.TargetName="NArrowUp"
+                                Storyboard.TargetProperty="Opacity"
+                                To="1" Duration="0:0:0.3" />
+                            <DoubleAnimation
+                                Storyboard.TargetName="NArrowDown"
+                                Storyboard.TargetProperty="Opacity"
+                                To="0" Duration="0:0:0.3" />
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Unchecked">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="NArrowUp"
+                                                           Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Hidden}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="NArrowDown"
+                                                           Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <DoubleAnimation
+                                Storyboard.TargetName="NArrowUp"
+                                Storyboard.TargetProperty="Opacity"
+                                To="0" Duration="0:0:0.3" />
+                            <DoubleAnimation
+                                Storyboard.TargetName="NArrowDown"
+                                Storyboard.TargetProperty="Opacity"
+                                To="1" Duration="0:0:0.3" />
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+
+            <Grid>
+                <Path x:Name="NArrowUp" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden"
+                      Opacity="0" Stroke="{TemplateBinding Background}">
+                    <Path.Data>
+                        <GeometryGroup>
+                            <PathGeometry
+                                Figures="M4.497,0.2133 L4.7133,-0.003 L9.303,4.5867 L9.0867,4.803 L4.497,0.2133 Z" />
+                            <PathGeometry
+                                Figures="M4.5867,-0.003 L4.803,0.2133 L0.2133,4.803 L-0.003,4.5867 L4.5867,-0.003 Z" />
+                        </GeometryGroup>
+                    </Path.Data>
+                </Path>
+
+                <Path x:Name="NArrowDown" HorizontalAlignment="Center" VerticalAlignment="Center"
+                      RenderTransformOrigin="0.5,0.5" Visibility="Visible" Opacity="1" Stroke="{TemplateBinding Background}">
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform />
+                            <SkewTransform />
+                            <RotateTransform Angle="-180" />
+                            <TranslateTransform />
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                    <Path.Data>
+                        <GeometryGroup>
+                            <PathGeometry
+                                Figures="M4.497,0.2133 L4.7133,-0.003 L9.303,4.5867 L9.0867,4.803 L4.497,0.2133 Z" />
+                            <PathGeometry
+                                Figures="M4.5867,-0.003 L4.803,0.2133 L0.2133,4.803 L-0.003,4.5867 L4.5867,-0.003 Z" />
+                        </GeometryGroup>
+                    </Path.Data>
+                </Path>
+            </Grid>
+        </Border>
+    </ControlTemplate>
+
+    <Style x:Key="{ComponentResourceKey {x:Type controls:ComboBoxSearches}, KComboBoxItemStyle}" TargetType="{x:Type ComboBoxItem}">
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="Background" Value="#333333" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                    <Grid Name="NGrid1"
+                          Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ComboBox}, Path=ActualWidth}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="SelectionStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="Selected">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="BorderSelected"
+                                                                      Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0"
+                                                                 Value="#4E4E4E" />
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="BorderSelected"
+                                                                      Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0"
+                                                                 Value="#454545" />
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <Border x:Name="BorderSelected"
+                                SnapsToDevicePixels="true"
+                                Background="{TemplateBinding Background}"
+                                BorderThickness="0"
+                                />
+
+                        <controls:ComboTextBlock Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left" Tag="{Binding}"/>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                            <Setter Property="Background" Value="#3B3B3B" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="{ComponentResourceKey {x:Type controls:ComboBoxSearches}, KComboBoxStyle}" TargetType="{x:Type ComboBox}">
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.CanContentScroll" Value="true" />
+        <Setter Property="MinWidth" Value="40" />
+        <Setter Property="MinHeight" Value="31" />
+        <Setter Property="IsEditable" Value="True" />
+        <Setter Property="IsReadOnly" Value="False" />
+        <Setter Property="Foreground" Value="#CFCFCF" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="AlternationCount" Value="2" />
+        <Setter Property="ItemContainerStyle" Value="{DynamicResource {ComponentResourceKey {x:Type controls:ComboBoxSearches}, KComboBoxItemStyle}}" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ComboBox}">
+                    <Border x:Name="PART_MainBorder" Background="#2c2c2c"  CornerRadius="5,5,5,5">
+
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="Busy"/>
+                                <VisualState x:Name="Disabled"/>
+                            </VisualStateGroup>
+
+                            <VisualStateGroup x:Name="DropDownOpenBorderStates">
+                                <VisualState x:Name="DropDownOpenBorderState">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_MainBorder"
+                                                                       Storyboard.TargetProperty="CornerRadius">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <CornerRadius BottomLeft="0" TopLeft="5" BottomRight="0" TopRight="5" />
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+
+                                <VisualState x:Name="DropDownCloseBorderState">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_MainBorder"
+                                                                       Storyboard.TargetProperty="CornerRadius">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <CornerRadius BottomLeft="5" BottomRight="5" TopLeft="5" TopRight="5" />
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+
+                            <VisualStateGroup x:Name="WaitInidicatorStates">
+                                <VisualState x:Name="WaitInidicatorShowState">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_ToggleButton"
+                                                                       Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Hidden}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_WaitInidicator"
+                                                                       Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+
+                                <VisualState x:Name="WaitInidicatorHideState">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_ToggleButton"
+                                                                       Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_WaitInidicator"
+                                                                       Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Collapsed}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+
+                        </VisualStateManager.VisualStateGroups>
+
+                        <Border x:Name="NBorder" Background="#333333" CornerRadius="5" Margin="0,2,0,0">
+                            <Grid Margin="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="30" />
+                                </Grid.ColumnDefinitions>
+
+                                <ToggleButton x:Name="PART_ToggleButton"
+                                              Grid.Column="1"
+                                              Margin="0,0,0,0"
+                                              Visibility="Visible"
+                                              Cursor="Hand"
+                                              Template="{DynamicResource {ComponentResourceKey {x:Type controls:ComboBoxSearches}, ComboBoxToggleButton}}"
+                                              Focusable="false"
+                                              ClickMode="Press"
+                                              Background="{TemplateBinding Foreground}"
+                                              HorizontalAlignment="Center" VerticalAlignment="Center"
+                                              IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+
+                                <controls1:WaitInidicator x:Name="PART_WaitInidicator" Grid.Column="1" Visibility="Hidden"
+                                                          Margin="0,0,0,0" Background="{TemplateBinding Foreground}"
+                                                          HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                                <Popup Grid.Column="0"
+                                       x:Name="Popup"
+                                       Placement="Bottom"
+                                       VerticalOffset="0"
+                                       HorizontalOffset="0"
+                                       IsOpen="{TemplateBinding IsDropDownOpen}"
+                                       AllowsTransparency="True"
+                                       Focusable="False"
+                                       PopupAnimation="Slide">
+                                    <Grid x:Name="DropDown"
+                                          SnapsToDevicePixels="True"
+                                          MinWidth="{TemplateBinding ActualWidth}"
+                                          MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                          Background="{DynamicResource KComboBoxBackground_Cb}">
+                                        <Border x:Name="DropDownBorder"
+                                                BorderBrush="{DynamicResource KComboBoxBorder_Cb}" />
+
+                                        <controls1:ScrollViewerTypeOne  ThumbColor="{TemplateBinding Foreground}" RepeatbuttonallBackgroundColor="#1B000000">
+                                            <VirtualizingStackPanel IsItemsHost="True"
+                                                                    KeyboardNavigation.DirectionalNavigation="Contained" />
+                                        </controls1:ScrollViewerTypeOne>
+
+                                    </Grid>
+                                </Popup>
+
+                                <controls:ComboTextBox x:Name="PART_MyEditableTextBox" Grid.Column="0" Margin="10,0,0,3"
+                                                       Foreground="{TemplateBinding Foreground}" 
+                                                       CaretBrush="{TemplateBinding Foreground}" 
+                                                       Background="Transparent" 
+                                                       HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                                                       >
+
+                                    <controls:ComboTextBox.Template>
+                                        <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                                            <Border Focusable="False">
+                                                <ScrollViewer Margin="0" x:Name="PART_ContentHost" />
+                                            </Border>
+                                        </ControlTemplate>
+                                    </controls:ComboTextBox.Template>
+
+                                </controls:ComboTextBox>
+                            </Grid>
+                        </Border>
+                    </Border>
+
+
+                    <!--<Border Background="#2c2c2c"  CornerRadius="5">
+                        <Border x:Name="NBorder" Background="#333333" CornerRadius="5" Margin="0,2,0,0">
+
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="Busy"/>
+                                    <VisualState x:Name="Disabled"/>
+                                </VisualStateGroup>
+
+                                <VisualStateGroup x:Name="WaitInidicatorStates">
+                                    <VisualState x:Name="WaitInidicatorShowState">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_ToggleButton"
+                                                                           Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Hidden}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_WaitInidicator"
+                                                                           Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+
+                                    <VisualState x:Name="WaitInidicatorHideState">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_ToggleButton"
+                                                                           Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_WaitInidicator"
+                                                                           Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Collapsed}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+
+                            </VisualStateManager.VisualStateGroups>
+
+                            <Grid Margin="-1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid x:Name="PART_ToggleButtonGrid" Grid.Column="1" Visibility="Visible" Width="30" Height="30">
+                                    <ToggleButton x:Name="PART_ToggleButton"
+                                                  Margin="0,0,0,0"
+                                                  Visibility="Visible"
+                                                  Cursor="Hand"
+                                                  Template="{DynamicResource {ComponentResourceKey {x:Type controls:ComboBoxSearches}, ComboBoxToggleButton}}"
+                                                  Focusable="false"
+                                                  ClickMode="Press"
+                                                  HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                  IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+                                </Grid>
+
+                                <controls1:WaitInidicator x:Name="PART_WaitInidicator" Grid.Column="1" Visibility="Hidden"
+                                                          Margin="0,0,4,0" Background="{DynamicResource KComboBoxToggleButtonDown_Cb}"
+                                                          HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                                <Popup Grid.Column="0"
+                                       x:Name="Popup"
+                                       Placement="Bottom"
+                                       VerticalOffset="0"
+                                       HorizontalOffset="0"
+                                       IsOpen="{TemplateBinding IsDropDownOpen}"
+                                       AllowsTransparency="True"
+                                       Focusable="False"
+                                       PopupAnimation="Slide">
+                                    <Grid x:Name="DropDown"
+                                          SnapsToDevicePixels="True"
+                                          MinWidth="{TemplateBinding ActualWidth}"
+                                          MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                          Background="{DynamicResource KComboBoxBackground_Cb}">
+                                        <Border x:Name="DropDownBorder"
+                                                BorderBrush="{DynamicResource KComboBoxBorder_Cb}" />
+                                        <ScrollViewer x:Name="PART_ScrollViewer" SnapsToDevicePixels="True">
+                                            <VirtualizingStackPanel IsItemsHost="True"
+                                                                    KeyboardNavigation.DirectionalNavigation="Contained" />
+                                        </ScrollViewer>
+                                    </Grid>
+                                </Popup>
+
+                                <controls:ComboTextBox x:Name="PART_MyEditableTextBox" Grid.Column="0" Margin="10,0,0,3"
+                                                       Foreground="{TemplateBinding Foreground}" 
+                                                       CaretBrush="{TemplateBinding Foreground}" 
+                                                       Background="Transparent" 
+                                                       HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                                                       >
+
+                                    <controls:ComboTextBox.Template>
+                                        <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                                            <Border Focusable="False">
+                                                <ScrollViewer Margin="0" x:Name="PART_ContentHost" />
+                                            </Border>
+                                        </ControlTemplate>
+                                    </controls:ComboTextBox.Template>
+
+                                </controls:ComboTextBox>
+                            </Grid>
+                        </Border>
+                    </Border>-->
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style  x:Key="{ComponentResourceKey {x:Type controls:ComboBoxSearches}, KAsyncComboBoxStyle}" TargetType="{x:Type Control}">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="AllowDrop" Value="true" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="MinHeight" Value="33" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Control}">
+                    <Border Name="Border" Background="#2c2c2c" CornerRadius="5">
+                        <ComboBox x:Name="PART_ComboBox" Style="{DynamicResource {ComponentResourceKey {x:Type controls:ComboBoxSearches}, KComboBoxStyle}}"></ComboBox>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
